@@ -1,4 +1,27 @@
 public class Classics {
+	private int[] precalculated = null;
+	
+	private void init(int n) {
+		precalculated = new int[n];
+		for(int i : precalculated) {
+			i = -1;
+		}
+		precalculated[0] = 1;
+		precalculated[1] = 1;		
+	}
+	
+	public int fibonacciMemory(int n){
+		if(precalculated == null) {
+			init(n);
+		}
+		if(precalculated[n-1] != -1) {
+			return precalculated[n-1];
+		}
+		int result = fibonacciMemory(n-1) + fibonacciMemory(n-2);
+		precalculated[n-1] = result;
+		return result;
+	}
+	
 
 	public static int factorial(int n) {
 		if(n == 1) {
@@ -15,9 +38,39 @@ public class Classics {
 		return tmp;
 	}
 	
+	public static int fibonacci(int n) {
+		if(n == 1 || n==2) {
+			return 1;
+		}
+		return fibonacci(n-1) + fibonacci(n-2);
+	}
+	
+	public static int iterativeFibonacci(int n) {
+		if(n == 1 || n == 2) {
+			return 1;
+		}
+		int tmp = 1;
+		int tmp2 = 1;
+		int tmp3;
+		for(int i=0 ; i<n-2 ; i++) {
+			tmp3 = tmp + tmp2;
+			tmp = tmp2;
+			tmp2 = tmp3;
+		}
+		return tmp2;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(factorial(5));
 		System.out.println(iterativeFactorial(5));
+		System.out.println(fibonacci(5));
+		System.out.println(iterativeFibonacci(5));
+		Classics launch = new Classics();
+		launch.launcher();
+	}
+	
+	public void launcher() {
+		fibonacciMemory(5);
 	}
 
 	
