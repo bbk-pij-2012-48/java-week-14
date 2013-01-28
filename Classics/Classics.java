@@ -60,27 +60,35 @@ public class Classics {
 		return tmp2;
 	}
 	
+	public static int pow(int a, int b) {
+		if(b == 0) 
+			return 1;
+		return a * pow(a, b-1);
+	}
+	
 	public static void main(String[] args) {
 		long finish;
 		long start = System.nanoTime();
-		System.out.println(iterativeFibonacci(45));
+		System.out.println(iterativeFibonacci(20));
 		finish = System.nanoTime();
 		System.out.println("With iterative methods, took " + (finish - start));	
 
 		start = System.nanoTime();
-		System.out.println(fibonacci(45));
+		System.out.println(fibonacci(20));
 		finish = System.nanoTime();
 		System.out.println("Without memory, took " + (finish - start));	
 		Classics launch = new Classics();
 		launch.launcher();
+		System.out.println("With memory, took " + (finish - start));
+		System.out.println("7^3 = " + pow(7,3));
 	}
 	
 	public void launcher() {
 		long finish;
 		long start = System.nanoTime();
-		System.out.println(fibonacciMemory(45));
+		System.out.println(fibonacciMemory(20));
 		finish = System.nanoTime();
-		System.out.println("With memory, took " + (finish - start));
+		
 	}
 
 	

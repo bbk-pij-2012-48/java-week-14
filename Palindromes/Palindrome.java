@@ -10,5 +10,14 @@ public class Palindrome {
 	
 	
 	public static void main(String[] args) {
+		if(!palindrome("Hello"))
+			System.out.println("Hello is not a palindrome");
+		else
+			System.out.println("Oops");
+		
+		if(palindrome("hannah"))
+			System.out.println("hannah is a palindrome");
+		else 
+			System.out.println("Oops");
 	}
 }
