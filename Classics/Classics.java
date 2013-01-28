@@ -3,8 +3,8 @@ public class Classics {
 	
 	private void init(int n) {
 		precalculated = new int[n];
-		for(int i : precalculated) {
-			i = -1;
+		for(int i=0 ; i<n ; i++){
+			precalculated[i] = -1;
 		}
 		precalculated[0] = 1;
 		precalculated[1] = 1;		
@@ -61,16 +61,26 @@ public class Classics {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(factorial(5));
-		System.out.println(iterativeFactorial(5));
-		System.out.println(fibonacci(5));
-		System.out.println(iterativeFibonacci(5));
+		long finish;
+		long start = System.nanoTime();
+		System.out.println(iterativeFibonacci(45));
+		finish = System.nanoTime();
+		System.out.println("With iterative methods, took " + (finish - start));	
+
+		start = System.nanoTime();
+		System.out.println(fibonacci(45));
+		finish = System.nanoTime();
+		System.out.println("Without memory, took " + (finish - start));	
 		Classics launch = new Classics();
 		launch.launcher();
 	}
 	
 	public void launcher() {
-		fibonacciMemory(5);
+		long finish;
+		long start = System.nanoTime();
+		System.out.println(fibonacciMemory(45));
+		finish = System.nanoTime();
+		System.out.println("With memory, took " + (finish - start));
 	}
 
 	
