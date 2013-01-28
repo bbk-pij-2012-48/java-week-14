@@ -26,3 +26,4 @@ public class EightDames {
 	}
 }
 				
+// will have to be only one queen on each row, and one queen on each column
